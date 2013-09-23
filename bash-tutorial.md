@@ -1,0 +1,229 @@
+## Intro
+
+BASH is a text-based shell for controlling your computer (or operating system).  Bash is actually an acronym which stands for Bourne-again shell.  It replaced the Bourne shell and "bashed together" the unix programs sh, csh and ksh.
+From it you can navigate the files on your computer and execute programs.
+You can also connect to other computers and basically do everything you can do
+in your GUI Operating System (like OS X or Windows).
+
+When you open a terminal, you're basically within your file system, or in a
+directory, just like you are when you open a Finder window or an Explorer window.
+
+## Navigation
+Open up command prompt or terminal. Type in: `pwd`
+You should see some output describing the directory you are currently within.
+
+`/Users/avi`
+
+*Note that avi is my username, yours will vary*
+
+That output is describing a location on your computer. You have a file system
+and within that file system are directories and files.
+
+The command pwd stands for print working directory.
+
+`/User/avi` means that I am currently working within a directory `/Users` on the
+root of my machine, and then within that directory, a directory named `avi`.
+
+That's my home directory. It belongs to the user I am currently logged in as.
+A short cut for a users home directory is the `~` (pronounced tilde) character.
+
+Try this:
+
+```
+cd ..
+pwd
+```
+
+You should now see that you are one directory above where you were, in my case
+`/Users`
+
+`cd` stands for change directory
+`..` stands for the directory above the working directory.
+
+Try this:
+
+```
+cd .
+pwd
+```
+
+You can see you are still in the same directory.
+
+`.` is a shortcut for the current directory.
+
+So three shortcuts within your filesystem
+
+- `~` Home directory
+- `.` current directory
+- `..` directory above
+
+You can supply any path to the cd command to navigate to that location.
+
+Try this:
+
+`ls`
+
+You should see a list of all the files within your working directory.
+
+`ls` stands for list.
+
+Try this:
+
+```
+cd /Users/avi
+pwd
+```
+
+The working directory is back to `/Users/avi`.
+
+## Paths
+
+The path supplied to the cd command, `/Users/avi` is known as an absolute path.
+
+Systems can use either absolute or relative paths.
+
+An absolute path is a path that points to the same location on the file system regardless of the working directory. They start with `/` because that is the root of your files ystem.
+
+A relative path is a path relative to the working directory of the user or application, so the full absolute path will not have to be given. They start
+with the name of a directory or a file.
+
+Paths use `/` to denotate levels.
+
+How many levels are within the following path?
+
+`/Users/avi/Development/code/flatiron-school/mixtape-app`
+
+- [The One True Paths](http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/)
+- [More on paths - Wikipedia](http://en.wikipedia.org/wiki/Path_(computing\))
+
+Knowing where you are in your terminal, what directory you are working in, is very important.
+
+## Commands
+
+Another cool command you can you use is `touch`, which simply creates a new file. Try:
+
+`touch hello_world.rb`
+
+Now try `ls`. You should see the file you just created, `hello_world.rb`, in the working directory.
+
+From within a shell, you can also execute programs. Navigate to where you saved
+your `hello_world.rb` file and try:
+
+`ruby hello_world.rb`
+
+This command is no different then the `cd` command. We're executing the `ruby` program by supplying a path to a file to execute.
+
+Most programs also accept flags or options for execution.
+
+A flag is denotated by a `-`. *Note that in some programs, options are passed directly to the command, not via flags*
+
+A common flag 99% of programs and commands accept is `h`, for help.
+
+`ruby -h`
+
+Try:
+
+`ls -lah`
+
+What that did is add a bunch of extra formatting and output options to our `ls` command. Namely, the `l` is for a vertical list of files, the `a` is for all information, including permissions, and the `h` is for human readable formats. Notice that you can combine flags with only one `h`.
+
+You have a lot of programs and commands available to you already. Useful ones include `tail`, `cat`, `ln`, `grep`, `ps` and `open`. `open` is interesting because it will trigger the default action associated with the file type. So `open .` will popup a finder winder with the current directory in finder (because remember that `.` is an alias to the current directory). `open hello_world.rb` will open that file in your default editor.
+
+## Tab Completion
+
+As you type in commands you can use tab completion.  Tab completion allows the shell to be smart and to try and guess what command you want to run when you hit tab.  If there's only one logical way to complete your command it will auto populate, or will show you the possibilities and you can keep typing more letters until you can tab complete your command.
+
+For example let's say we have the following directory structure.
+
+/flatiron_school
+/flatiron_building
+
+If I'm in my root directory (typing `pwd` gives me `\`) and I type `cd f` and then hit tab it will fill in everything up until the conflict so i'll see `cd flatiron_`.  If I then add the `s` and hit tab it will fill in `cd flatiron_school` and I can hit enter.
+
+## Login Routine
+
+Everytime you open your terminal or a new tab, you are relogging into your shell. Your system has a login routine of things to do when you login. One of the things it does is read a file called `bash_profile`. Try this, `cd ~` (to change directory into your home directory) and then `ls -lah`
+
+There are both login and non login shells.  On Mac OS X you're almost always in a login shell, however sometimes you'll run into problems if you start a non-login shell as bash will read the file .bashrc rather than .bash_profile.  A common convention is to only use your bash profile to store settings and in .bashrc add
+
+```
+if [ -f ~/.bash_profile ]; then
+   source ~/.bash_profile
+fi
+```
+
+This will load the bash profile file if it exists so that way your bash profile gets read whether your in a login or non-login shell.
+
+### Your Bash Profile
+
+A common alias people will put in their bash_profile is `alias l='ls -lah'`.  This allows me to type `l` at the command line and have the computer execute ls -lah instead.  Aliasing commonly typed things may seem silly since it only saves a few key presses, but multiply that savings by a million times using that command and you'll add weeks to your life.
+
+Bash is both a programming language and a command interpreter.  You can set environmental variables in your bash profile which other programs can use.
+
+Here are a few common things you'll see in bash profiles.
+
+`CDPATH=~/Users/blake/Documents/Development/`
+  - This allows me to cd into a directory inside of /Users/blake/Documents/Development/ by only typing the folders name rather than the full path.
+  - For example if I had a directory ~/Users/blake/Documents/Development/flatiron_school I could cd into it simply by typing `cd flatiron_school` rather than `cd ~/Users/blake/Documents/Development/flatiron_school`
+
+`[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"`
+  - If you're using RVM, it will add when it installs itself.  This essentially is a conditional which says if the file at ~/.rvm/scripts/rvm exists bash should load that file.  You can check to see if this file exists yourself by doing `ls $HOME/.rvm/scripts/rvm`
+
+`PS1="[\d \t \u@\h:\w ] $ "`
+  - PS1 is the variable that allows you to configure the prompt in your terminal to be whatever you want it to be.
+  - [Tutorial on configuring your PS1](http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html)
+
+```
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+```
+  - This will allow you to autocomplete git commands/branches
+  - Note: You need to install bash completion first (`brew install git bash-completion`)
+
+### Hidden Files
+
+Notice at the top of the file output are a bunch of files that start with a `.`, like `.DS_Store`
+
+But try `open .` and just `ls`, those files, like `.DS_Store`, are not listed. That's because files that start with a `.` are hidden files. Your `bash_profile` is a hidden file in your home directory.  If you want to see the hidden files you can add the a flag to `ls` by typing `ls -a`.
+
+If you're interested in where this convention came from check out [The history of hidden files](https://plus.google.com/101960720994009339267/posts/R58WgWwN9jp)
+
+
+### PATH and Environment Variables
+You may be wondering what the computer is actually doing when you type a command at the command line.  It's running an executable program.  But how does the computer know what to do when I type `ls whatever`?  The PATH variable gives the computer an ordered list of directories to search to find an executable with the name you typed.  In our case, it's going to search for the "ls" executable.  If you type `ls /bin` you'll see that this is an actual program or "binary" which is why it's usually found in the bin directory (short for binary).  If you're trying to run a ruby program and typing `ruby myprogram.rb` the computer goes through all the files in the path until it finds an executable called ruby and then runs that code with the provided argument ("myprogram.rb").  If you type echo $PATH you can see what your path is.  If you're using RVM, it will look something like this
+
+```
+/Users/blake/.rvm/gems/ruby-1.9.3-p392/bin:/Users/blake/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/blake/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/blake/.rvm/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:/Users/blake/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin
+```
+
+Each directory in the path is separated by the ":"
+
+You'll often see in your bash_profile something like `PATH=$PATH:/bin:/usr/sbin`
+This is just saying let's set the path to the existing PATH and add the /bin directory to it.
+If you ever get errors where you type something in the terminal and it says it can't be found, the executable you're trying to run needs to be added to the path. If the wrong executable is getting run, the order of directories in your path is wrong.
+
+The PATH variable is an environmental variable.  These are variables you can set specific to your computer's environment and then be used in other programs.  For example in ruby you can type `ENV[name_of_variable]` to access an environmental variable.  These are typically set in your bash profile, in a bash script, or at the command line.
+
+Tip: If you want to find out where the program being run is located when you type a command at the command line use the which command.  `which ruby` will tell you where the ruby binary is located.
+#### /usr, /usr/local, /usr/local/bin
+These directories are directories that are typically specific to an indivual.
+If you look in /usr/local you'll see a Cellar directory where homebrew installs it's programs.
+## Random Bonus: Piping |
+Piping will send the output of one command into the input of another command.
+The most common command you'll probably use is piping the process list to grep to search for a running program.
+`ps aux | grep ruby`
+This would run the ps command with the a,u and x flags, and send the output of that to grep, a search utility which would then search for the term "ruby".
+
+to add
+kill
+grep
+background a task &, fg
+find -name
+
+## More Resources:
+
+- [Lifehacker on the Command Line](http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything)
+- [Environment Variables](http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/)
+- [Builtin Shell Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/) *Very useful*
+- [15 Useful Bash Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/)
