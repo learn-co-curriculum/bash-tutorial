@@ -1,3 +1,8 @@
+---
+  tags: tutorial, command line, shell
+  languages: bash
+---
+
 ## Intro
 
 BASH is a text-based shell for controlling your computer (or operating system).  Bash is actually an acronym which stands for Bourne-again shell.  It replaced the Bourne shell and "bashed together" the unix programs sh, csh and ksh.
