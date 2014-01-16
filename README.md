@@ -185,7 +185,27 @@ $ cd ~
 ls -lah
 ```
 
-There are both login and non login shells.  On Mac OS X you're almost always in a login shell, however sometimes you'll run into problems if you start a non-login shell as bash will read the file .bashrc rather than .bash_profile.  A common convention is to only use your bash profile to store settings and in .bashrc add
+You may or may not see a `.bash_profile` file listed. If not, don't worry. We'll make one and add some cool stuff to in in just a bit.
+
+There are both login and non login shells. On Mac OS X you're almost always in a login shell. However, sometimes you'll run into problems if you start a non-login shell as bash will read a file called `.bashrc` rather than `.bash_profile`. A common convention is to only use your bash profile to store settings and source, or load it, in `.bashrc`.
+
+First, let's make sure a `.bashrc` file exists. To find out, type:
+
+```bash
+$ ls -a | grep .bashrc
+```
+
+Don't worry about that weird syntax just yet. You'll learn what piping is in a few paragraphs. If your terminal spits `.bashrc` back at you, it exists! If nothing seems to happen, then it doesn't exist on your system.
+
+*Only if `.bashrc` doesn't exist*: Type:
+
+```bash
+$ touch .bashrc
+```
+
+(This will, as you know, create a file called `.bashrc` in your current directory.)
+
+Now, let's add the bit of code to the top of your `.bashrc` file.
 
 ```
 if [ -f ~/.bash_profile ]; then
@@ -255,12 +275,6 @@ Piping will send the output of one command into the input of another command.
 The most common command you'll probably use is piping the process list to grep to search for a running program.
 `ps aux | grep ruby`
 This would run the ps command with the a,u and x flags, and send the output of that to grep, a search utility which would then search for the term "ruby".
-
-to add
-kill
-grep
-background a task &, fg
-find -name
 
 ## More Resources:
 
