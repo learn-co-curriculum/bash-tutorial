@@ -14,6 +14,7 @@ When you open a terminal, you're basically within your file system, or in a
 directory, just like you are when you open a Finder window or an Explorer window.
 
 ## Navigation
+
 Open up command prompt or terminal. Type in: `pwd`
 You should see some output describing the directory you are currently within.
 
@@ -24,19 +25,21 @@ You should see some output describing the directory you are currently within.
 That output is describing a location on your computer. You have a file system
 and within that file system are directories and files.
 
-The command pwd stands for print working directory.
+The command `pwd` stands for print working directory.
 
 `/User/avi` means that I am currently working within a directory `/Users` on the
 root of my machine, and then within that directory, a directory named `avi`.
 
 That's my home directory. It belongs to the user I am currently logged in as.
-A short cut for a users home directory is the `~` (pronounced tilde) character.
+A short cut for a user's home directory is the `~` (pronounced tilde) character.
 
 Try this:
 
-```
-cd ..
-pwd
+*Note that any time you see the '$' character, you shouldn't type it it. This is just a standard way to represent a bash prompt. Yours may or may not be a '$'.*
+
+```bash
+$ cd ..
+$ pwd
 ```
 
 You should now see that you are one directory above where you were, in my case
@@ -47,26 +50,28 @@ You should now see that you are one directory above where you were, in my case
 
 Try this:
 
-```
-cd .
-pwd
+```bash
+$ cd .
+$ pwd
 ```
 
 You can see you are still in the same directory.
 
 `.` is a shortcut for the current directory.
 
-So three shortcuts within your filesystem
+So here are three shortcuts within your filesystem:
 
 - `~` Home directory
 - `.` current directory
 - `..` directory above
 
-You can supply any path to the cd command to navigate to that location.
+You can supply any path to the `cd` command to navigate to that location.
 
 Try this:
 
-`ls`
+```bash
+$ ls
+```
 
 You should see a list of all the files within your working directory.
 
@@ -74,47 +79,60 @@ You should see a list of all the files within your working directory.
 
 Try this:
 
-```
-cd /Users/avi
-pwd
+```bash
+$ cd /Users/avi
+$ pwd
 ```
 
 The working directory is back to `/Users/avi`.
 
 ## Paths
 
-The path supplied to the cd command, `/Users/avi` is known as an absolute path.
+The path supplied to the cd command, for example `/Users/avi`, is known as an absolute path.
 
-Systems can use either absolute or relative paths.
+Systems can use either *absolute* or *relative* paths.
 
 An absolute path is a path that points to the same location on the file system regardless of the working directory. They start with `/` because that is the root of your files ystem.
+
+This is an absolute path: `/Users/avi`
 
 A relative path is a path relative to the working directory of the user or application, so the full absolute path will not have to be given. They start
 with the name of a directory or a file.
 
-Paths use `/` to denotate levels.
+This is a relative path: `avi/Documents`
+
+Paths use `/` to denote levels.
 
 How many levels are within the following path?
 
 `/Users/avi/Development/code/flatiron-school/mixtape-app`
 
-- [The One True Paths](http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/)
+- [The One True Path](http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/)
 - [More on paths - Wikipedia](http://en.wikipedia.org/wiki/Path_(computing\))
 
-Knowing where you are in your terminal, what directory you are working in, is very important.
+Knowing where you are in your terminal - what directory you are working in - is very important.
 
 ## Commands
 
 Another cool command you can you use is `touch`, which simply creates a new file. Try:
 
-`touch hello_world.rb`
+```bash
+$ touch hello_world.rb
+```
 
-Now try `ls`. You should see the file you just created, `hello_world.rb`, in the working directory.
+Now try:
 
-From within a shell, you can also execute programs. Navigate to where you saved
-your `hello_world.rb` file and try:
+```bash
+$ ls
+```
 
-`ruby hello_world.rb`
+You should see the file you just created, `hello_world.rb`, in the working directory.
+
+From within a shell, you can also execute programs. Navigate to where you saved your `hello_world.rb` file and try:
+
+```bash
+$ ruby hello_world.rb
+```
 
 This command is no different then the `cd` command. We're executing the `ruby` program by supplying a path to a file to execute.
 
@@ -124,30 +142,48 @@ A flag is denotated by a `-`. *Note that in some programs, options are passed di
 
 A common flag 99% of programs and commands accept is `h`, for help.
 
-`ruby -h`
+```bash
+$ ruby -h
+```
 
-Try:
+Now try:
 
-`ls -lah`
+```bash
+$ ls -lah
+```
 
-What that did is add a bunch of extra formatting and output options to our `ls` command. Namely, the `l` is for a vertical list of files, the `a` is for all information, including permissions, and the `h` is for human readable formats. Notice that you can combine flags with only one `h`.
+What that did is add a bunch of extra formatting and output options to our `ls` command. Namely, the `l` is for a vertical list of files, the `a` is for all information, including permissions, and the `h` is for human readable formats. Notice that you can combine flags with only one `-`.
 
-You have a lot of programs and commands available to you already. Useful ones include `tail`, `cat`, `ln`, `grep`, `ps` and `open`. `open` is interesting because it will trigger the default action associated with the file type. So `open .` will popup a finder winder with the current directory in finder (because remember that `.` is an alias to the current directory). `open hello_world.rb` will open that file in your default editor.
+You have a lot of programs and commands available to you. Useful ones include `tail`, `cat`, `ln`, `grep`, `ps` and `open`.
+
+`open` is interesting because it will trigger the default action associated with the file type. So `open .` will popup a finder winder with the current directory in finder (because remember that `.` is an alias to the current directory). `open hello_world.rb` will open that file in your default editor.
 
 ## Tab Completion
 
-As you type in commands you can use tab completion.  Tab completion allows the shell to be smart and to try and guess what command you want to run when you hit tab.  If there's only one logical way to complete your command it will auto populate, or will show you the possibilities and you can keep typing more letters until you can tab complete your command.
+As you type in commands you can use tab completion. Tab completion allows the shell to be smart and to try and guess what command you want to run when you hit tab.  If there's only one logical way to complete your command it will auto populate, or will show you the possibilities and you can keep typing more letters until you can tab complete your command.
 
 For example let's say we have the following directory structure.
 
+```bash
 /flatiron_school
 /flatiron_building
+```
 
-If I'm in my root directory (typing `pwd` gives me `\`) and I type `cd f` and then hit tab it will fill in everything up until the conflict so i'll see `cd flatiron_`.  If I then add the `s` and hit tab it will fill in `cd flatiron_school` and I can hit enter.
+If I'm in my root directory (typing `pwd` gives me `/Users/avi`) and I type `cd f` and then hit tab it will fill in everything up until the conflict so i'll see `cd flatiron_`.  If I then add the `s` and hit tab it will fill in `cd flatiron_school` and I can hit enter.
 
 ## Login Routine
 
-Everytime you open your terminal or a new tab, you are relogging into your shell. Your system has a login routine of things to do when you login. One of the things it does is read a file called `bash_profile`. Try this, `cd ~` (to change directory into your home directory) and then `ls -lah`
+Everytime you open your terminal or a new tab, you are relogging into your shell. Your system has a login routine of things to do when you login. One of the things it does is read a file called `.bash_profile`. Try this:
+
+```bash
+$ cd ~
+```
+
+(This change directory into your home directory). Then type:
+
+```bash
+ls -lah
+```
 
 There are both login and non login shells.  On Mac OS X you're almost always in a login shell, however sometimes you'll run into problems if you start a non-login shell as bash will read the file .bashrc rather than .bash_profile.  A common convention is to only use your bash profile to store settings and in .bashrc add
 
