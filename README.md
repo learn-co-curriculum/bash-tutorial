@@ -187,34 +187,6 @@ ls -lah
 
 You may or may not see a `.bash_profile` file listed. If not, don't worry. We'll make one and add some cool stuff to in in just a bit.
 
-There are both login and non login shells. On Mac OS X you're almost always in a login shell. However, sometimes you'll run into problems if you start a non-login shell as bash will read a file called `.bashrc` rather than `.bash_profile`. A common convention is to only use your bash profile to store settings and source, or load it, in `.bashrc`.
-
-First, let's make sure a `.bashrc` file exists. To find out, type:
-
-```bash
-$ ls -a | grep .bashrc
-```
-
-Don't worry about that weird syntax just yet. You'll learn what piping is in a few paragraphs. If your terminal spits `.bashrc` back at you, it exists! If nothing seems to happen, then it doesn't exist on your system.
-
-*Only if `.bashrc` doesn't exist*: Type:
-
-```bash
-$ touch .bashrc
-```
-
-(This will, as you know, create a file called `.bashrc` in your current directory.)
-
-Now, let's add the bit of code to the top of your `.bashrc` file.
-
-```
-if [ -f ~/.bash_profile ]; then
-   source ~/.bash_profile
-fi
-```
-
-This will load the bash profile file if it exists so that way your bash profile gets read whether your in a login or non-login shell.
-
 ### Your Bash Profile
 
 A common alias people will put in their bash_profile is `alias l='ls -lah'`.  This allows me to type `l` at the command line and have the computer execute ls -lah instead.  Aliasing commonly typed things may seem silly since it only saves a few key presses, but multiply that savings by a million times using that command and you'll add weeks to your life.
