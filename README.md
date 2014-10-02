@@ -252,5 +252,5 @@ This would run the ps command with the a,u and x flags, and send the output of t
 
 - [Lifehacker on the Command Line](http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything)
 - [Environment Variables](http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/)
-- [Builtin Shell Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/) *Very useful*
+- [Builtin Shell Commands](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 - [15 Useful Bash Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/)
