@@ -7,31 +7,28 @@
 
 BASH is a text-based shell for controlling your computer (or operating system).  Bash is actually an acronym which stands for Bourne-again shell.  It replaced the Bourne shell and "bashed together" the unix programs sh, csh and ksh.
 From it you can navigate the files on your computer and execute programs.
-You can also connect to other computers and basically do everything you can do
-in your GUI Operating System (like OS X or Windows).
 
-When you open a terminal, you're basically within your file system, or in a
-directory, just like you are when you open a Finder window or an Explorer window.
+You can also connect to other computers and basically do everything you can do in your GUI Operating System (like OS X or Windows).
+
+When you open a terminal, you're basically within your file system, or in a directory, just like you are when you open a Finder window or an Explorer window.
 
 ## Navigation
 
 Open up command prompt or terminal. Type in: `pwd`
+
 You should see some output describing the directory you are currently within.
 
 `/Users/avi`
 
 *Note that avi is my username, yours will vary*
 
-That output is describing a location on your computer. You have a file system
-and within that file system are directories and files.
+That output is describing a location on your computer. You have a file system and within that file system are directories and files.
 
 The command `pwd` stands for print working directory.
 
-`/User/avi` means that I am currently working within a directory `/Users` on the
-root of my machine, and then within that directory, a directory named `avi`.
+`/User/avi` means that I am currently working within a directory `/Users` on the root of my machine, and then within that directory, a directory named `avi`.
 
-That's my home directory. It belongs to the user I am currently logged in as.
-A short cut for a user's home directory is the `~` (pronounced tilde) character.
+That's my home directory. It belongs to the user I am currently logged in as. A short cut for a user's home directory is the `~` (pronounced tilde) character.
 
 Try this:
 
@@ -43,6 +40,7 @@ $ pwd
 ```
 
 You should now see that you are one directory above where you were, in my case
+
 `/Users`
 
 `cd` stands for change directory
@@ -96,8 +94,7 @@ An absolute path is a path that points to the same location on the file system r
 
 This is an absolute path: `/Users/avi`
 
-A relative path is a path relative to the working directory of the user or application, so the full absolute path will not have to be given. They start
-with the name of a directory or a file.
+A relative path is a path relative to the working directory of the user or application, so the full absolute path will not have to be given. They start with the name of a directory or a file.
 
 This is a relative path: `avi/Documents`
 
@@ -239,9 +236,12 @@ If you ever get errors where you type something in the terminal and it says it c
 The PATH variable is an environmental variable.  These are variables you can set specific to your computer's environment and then be used in other programs.  For example in ruby you can type `ENV[name_of_variable]` to access an environmental variable.  These are typically set in your bash profile, in a bash script, or at the command line.
 
 Tip: If you want to find out where the program being run is located when you type a command at the command line use the which command.  `which ruby` will tell you where the ruby binary is located.
-#### /usr, /usr/local, /usr/local/bin
+
+#### `/usr, /usr/local`, `/usr/local/bin`
 These directories are directories that are typically specific to an indivual.
+
 If you look in /usr/local you'll see a Cellar directory where homebrew installs it's programs.
+
 ## Random Bonus: Piping |
 Piping will send the output of one command into the input of another command.
 The most common command you'll probably use is piping the process list to grep to search for a running program.
@@ -252,5 +252,5 @@ This would run the ps command with the a,u and x flags, and send the output of t
 
 - [Lifehacker on the Command Line](http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything)
 - [Environment Variables](http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/)
-- [Builtin Shell Commands](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
+- [Builtin Shell Commands](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html) *Very useful*
 - [15 Useful Bash Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/)
