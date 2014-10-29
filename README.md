@@ -5,8 +5,7 @@
 
 ## Intro
 
-BASH is a text-based shell for controlling your computer (or operating system).  Bash is actually an acronym which stands for Bourne-again shell.  It replaced the Bourne shell and "bashed together" the unix programs sh, csh and ksh.
-From it you can navigate the files on your computer and execute programs.
+BASH is a text-based shell for controlling your computer (or operating system).  Bash is actually an acronym which stands for Bourne-again shell.  It replaced the Bourne shell and "bashed together" the unix programs sh, csh and ksh. From it you can navigate the files on your computer and execute programs.
 
 You can also connect to other computers and basically do everything you can do in your GUI Operating System (like OS X or Windows).
 
@@ -221,6 +220,7 @@ If you're interested in where this convention came from check out [The history o
 
 
 ### PATH and Environment Variables
+
 You may be wondering what the computer is actually doing when you type a command at the command line.  It's running an executable program.  But how does the computer know what to do when I type `ls whatever`?  The PATH variable gives the computer an ordered list of directories to search to find an executable with the name you typed.  In our case, it's going to search for the "ls" executable.  If you type `ls /bin` you'll see that this is an actual program or "binary" which is why it's usually found in the bin directory (short for binary).  If you're trying to run a ruby program and typing `ruby myprogram.rb` the computer goes through all the files in the path until it finds an executable called ruby and then runs that code with the provided argument ("myprogram.rb").  If you type echo $PATH you can see what your path is.  If you're using RVM, it will look something like this
 
 ```
@@ -238,14 +238,18 @@ The PATH variable is an environmental variable.  These are variables you can set
 Tip: If you want to find out where the program being run is located when you type a command at the command line use the which command.  `which ruby` will tell you where the ruby binary is located.
 
 #### `/usr, /usr/local`, `/usr/local/bin`
+
 These directories are directories that are typically specific to an indivual.
 
 If you look in /usr/local you'll see a Cellar directory where homebrew installs it's programs.
 
 ## Random Bonus: Piping |
+
 Piping will send the output of one command into the input of another command.
 The most common command you'll probably use is piping the process list to grep to search for a running program.
+
 `ps aux | grep ruby`
+
 This would run the ps command with the a,u and x flags, and send the output of that to grep, a search utility which would then search for the term "ruby".
 
 ## More Resources:
