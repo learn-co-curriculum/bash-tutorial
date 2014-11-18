@@ -31,7 +31,7 @@ That's my home directory. It belongs to the user I am currently logged in as. A 
 
 Try this:
 
-*Note that any time you see the '$' character, you shouldn't type it it. This is just a standard way to represent a bash prompt. Yours may or may not be a '$'.*
+*Note that any time you see the '$' character, you shouldn't type it in. This is just a standard way to represent a bash prompt. Yours may or may not be a '$'.*
 
 ```bash
 $ cd ..
@@ -93,7 +93,7 @@ An absolute path is a path that points to the same location on the file system r
 
 This is an absolute path: `/Users/avi`
 
-A relative path is a path relative to the working directory of the user or application, so the full absolute path will not have to be given. They start with the name of a directory or a file.
+A relative path is a path **relative** to the working directory of the user or application, so the full absolute path will not have to be given. They start with the name of a directory or a file.
 
 This is a relative path: `avi/Documents`
 
@@ -150,9 +150,13 @@ $ ls -lah
 
 What that did is add a bunch of extra formatting and output options to our `ls` command. Namely, the `l` is for a vertical list of files, the `a` is for all information, including permissions, and the `h` is for human readable formats. Notice that you can combine flags with only one `-`.
 
-You have a lot of programs and commands available to you. Useful ones include `tail`, `cat`, `ln`, `grep`, `ps` and `open`.
+You have a lot of programs and commands available to you. Useful ones include `cat`, `ps` and `open`.
 
 `open` is interesting because it will trigger the default action associated with the file type. So `open .` will popup a finder winder with the current directory in finder (because remember that `.` is an alias to the current directory). `open hello_world.rb` will open that file in your default editor.
+
+`cat [file-name]` reads a file and prints the content to your command line.
+
+`ps` lists the current processes being run by your terminal.
 
 ## Tab Completion
 
@@ -181,47 +185,25 @@ $ cd ~
 ls -lah
 ```
 
-You may or may not see a `.bash_profile` file listed. If not, don't worry. We'll make one and add some cool stuff to in in just a bit.
-
-### Your Bash Profile
-
-A common alias people will put in their bash_profile is `alias l='ls -lah'`.  This allows me to type `l` at the command line and have the computer execute ls -lah instead.  Aliasing commonly typed things may seem silly since it only saves a few key presses, but multiply that savings by a million times using that command and you'll add weeks to your life.
-
-Bash is both a programming language and a command interpreter.  You can set environmental variables in your bash profile which other programs can use.
-
-Here are a few common things you'll see in bash profiles.
-
-`CDPATH=~/Users/blake/Documents/Development/`
-  - This allows me to cd into a directory inside of /Users/blake/Documents/Development/ by only typing the folders name rather than the full path.
-  - For example if I had a directory ~/Users/blake/Documents/Development/flatiron_school I could cd into it simply by typing `cd flatiron_school` rather than `cd ~/Users/blake/Documents/Development/flatiron_school`
-
-`[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"`
-  - If you're using RVM, it will add when it installs itself.  This essentially is a conditional which says if the file at ~/.rvm/scripts/rvm exists bash should load that file.  You can check to see if this file exists yourself by doing `ls $HOME/.rvm/scripts/rvm`
-
-`PS1="[\d \t \u@\h:\w ] $ "`
-  - PS1 is the variable that allows you to configure the prompt in your terminal to be whatever you want it to be.
-  - [Tutorial on configuring your PS1](http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html)
-
-```
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-```
-  - This will allow you to autocomplete git commands/branches
-  - Note: You need to install bash completion first (`brew install git bash-completion`)
+You may or may not see a `.bash_profile` file listed. If not, don't worry. We'll make one and add some cool stuff to in it later.
 
 ### Hidden Files
 
+Type in:
+
+```bash
+ls -lah
+```
+
 Notice at the top of the file output are a bunch of files that start with a `.`, like `.DS_Store`
 
-But try `open .` and just `ls`, those files, like `.DS_Store`, are not listed. That's because files that start with a `.` are hidden files. Your `bash_profile` is a hidden file in your home directory.  If you want to see the hidden files you can add the a flag to `ls` by typing `ls -a`.
+But try `open .` and just `ls`, those files, like `.DS_Store`, are not listed. That's because files that start with a `.` are hidden files. Your `.bash_profile` is a hidden file in your home directory.  If you want to see the hidden files you can add the a flag to `ls` by typing `ls -a`.
 
 If you're interested in where this convention came from check out [The history of hidden files](https://plus.google.com/101960720994009339267/posts/R58WgWwN9jp)
 
-
 ### PATH and Environment Variables
 
-You may be wondering what the computer is actually doing when you type a command at the command line.  It's running an executable program.  But how does the computer know what to do when I type `ls whatever`?  The PATH variable gives the computer an ordered list of directories to search to find an executable with the name you typed.  In our case, it's going to search for the "ls" executable.  If you type `ls /bin` you'll see that this is an actual program or "binary" which is why it's usually found in the bin directory (short for binary).  If you're trying to run a ruby program and typing `ruby myprogram.rb` the computer goes through all the files in the path until it finds an executable called ruby and then runs that code with the provided argument ("myprogram.rb").  If you type echo $PATH you can see what your path is.  If you're using RVM, it will look something like this
+You may be wondering what the computer is actually doing when you type a command at the command line.  It's running an executable program.  But how does the computer know what to do when I type `ls whatever`?  The PATH variable gives the computer an ordered list of directories to search to find an executable with the name you typed.  In our case, it's going to search for the "ls" executable.  If you type `ls /bin` you'll see that this is an actual program or "binary" which is why it's usually found in the bin directory (short for binary).  If you're trying to run a ruby program and typing `ruby myprogram.rb` the computer goes through all the files in the path until it finds an executable called ruby and then runs that code with the provided argument ("myprogram.rb").  If you type echo $PATH you can see what your path is.  If you're using RVM, it will look something like this:
 
 ```
 /Users/blake/.rvm/gems/ruby-1.9.3-p392/bin:/Users/blake/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/blake/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/blake/.rvm/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:/Users/blake/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin
@@ -229,8 +211,6 @@ You may be wondering what the computer is actually doing when you type a command
 
 Each directory in the path is separated by the ":"
 
-You'll often see in your bash_profile something like `PATH=$PATH:/bin:/usr/sbin`
-This is just saying let's set the path to the existing PATH and add the /bin directory to it.
 If you ever get errors where you type something in the terminal and it says it can't be found, the executable you're trying to run needs to be added to the path. If the wrong executable is getting run, the order of directories in your path is wrong.
 
 The PATH variable is an environmental variable.  These are variables you can set specific to your computer's environment and then be used in other programs.  For example in ruby you can type `ENV[name_of_variable]` to access an environmental variable.  These are typically set in your bash profile, in a bash script, or at the command line.
