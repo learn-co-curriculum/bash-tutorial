@@ -104,7 +104,7 @@ How many levels are within the following path?
 `/Users/avi/Development/code/flatiron-school/mixtape-app`
 
 - [The One True Path](http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/)
-- [More on paths - Wikipedia](http://en.wikipedia.org/wiki/Path_(computing\))
+- [More on paths - Wikipedia](http://en.wikipedia.org/wiki/Path_\(computing\))
 
 Knowing where you are in your terminal - what directory you are working in - is very important.
 
