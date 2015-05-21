@@ -130,7 +130,7 @@ From within a shell, you can also execute programs. Navigate to where you saved 
 $ ruby hello_world.rb
 ```
 
-This command is no different then the `cd` command. We're executing the `ruby` program by supplying a path to a file to execute.
+ is no different than the `cd` command. We're executing the `ruby` program by supplying a path to a file to execute.
 
 Most programs also accept flags or options for execution.
 
