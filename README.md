@@ -13,7 +13,7 @@ When you open a terminal, you're basically within your file system, or in a dire
 
 ## Navigation
 
-Open up command prompt or terminal. Type in: `pwd`
+Open up command prompt or terminal. Type in: `pwd` and hit return.
 
 You should see some output describing the directory you are currently within.
 
@@ -89,7 +89,7 @@ The path supplied to the cd command, for example `/Users/avi`, is known as an ab
 
 Systems can use either *absolute* or *relative* paths.
 
-An absolute path is a path that points to the same location on the file system regardless of the working directory. They start with `/` because that is the root of your files ystem.
+An absolute path is a path that points to the same location on the file system regardless of the working directory. They start with `/` because that is the root of your file system.
 
 This is an absolute path: `/Users/avi`
 
@@ -107,6 +107,8 @@ How many levels are within the following path?
 - [More on paths - Wikipedia](http://en.wikipedia.org/wiki/Path_\(computing\))
 
 Knowing where you are in your terminal - what directory you are working in - is very important.
+
+(If you said 6 levels to the question above you are right!!)
 
 ## Commands
 
@@ -173,13 +175,13 @@ If I'm in my root directory (typing `pwd` gives me `/Users/avi`) and I type `cd 
 
 ## Login Routine
 
-Everytime you open your terminal or a new tab, you are relogging into your shell. Your system has a login routine of things to do when you login. One of the things it does is read a file called `.bash_profile`. Try this:
+Every time you open your terminal or a new tab, you are relogging into your shell. Your system has a login routine of things to do when you login. One of the things it does is read a file called `.bash_profile`. Try this:
 
 ```bash
 $ cd ~
 ```
 
-(This change directory into your home directory). Then type:
+(This command moves you to your home directory). Then type:
 
 ```bash
 ls -lah
@@ -203,7 +205,7 @@ If you're interested in where this convention came from check out [The history o
 
 ### PATH and Environment Variables
 
-You may be wondering what the computer is actually doing when you type a command at the command line.  It's running an executable program.  But how does the computer know what to do when I type `ls whatever`?  The PATH variable gives the computer an ordered list of directories to search to find an executable with the name you typed.  In our case, it's going to search for the "ls" executable.  If you type `ls /bin` you'll see that this is an actual program or "binary" which is why it's usually found in the bin directory (short for binary).  If you're trying to run a ruby program and typing `ruby myprogram.rb` the computer goes through all the files in the path until it finds an executable called ruby and then runs that code with the provided argument ("myprogram.rb").  If you type `echo $PATH` you can see what your path is.  If you're using RVM, it will look something like this:
+You may be wondering what the computer is actually doing when you type a command at the command line.  It's running an executable program.  But how does the computer know what to do when I type `ls whatever`?  The PATH variable gives the computer an ordered list of directories to search to find an executable with the name you typed.  In our case, it's going to search for the "ls" executable.  If you type `ls /bin` you'll see that this is an actual program or "binary" which is why it's usually found in the bin directory (short for binary).  If you're trying to run a ruby program and typing `ruby myprogram.rb` the computer goes through all the files in the path until it finds an executable called ruby and then runs that code with the provided argument ("myprogram.rb").  If you type `echo $PATH` you can see what your path is.  If you're using [RVM](https://rvm.io/) (if you don't know what this is at the moment don't worry), it will look something like this:
 
 ```
 /Users/blake/.rvm/gems/ruby-1.9.3-p392/bin:/Users/blake/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/blake/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/blake/.rvm/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:/Users/blake/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin
@@ -213,24 +215,24 @@ Each directory in the path is separated by the ":"
 
 If you ever get errors where you type something in the terminal and it says it can't be found, the executable you're trying to run needs to be added to the path. If the wrong executable is getting run, the order of directories in your path is wrong.
 
-The PATH variable is an environmental variable.  These are variables you can set specific to your computer's environment and then be used in other programs.  For example in ruby you can type `ENV[name_of_variable]` to access an environmental variable.  These are typically set in your bash profile, in a bash script, or at the command line.
+The PATH variable is an environmental variable. These are variables you can set specific to your computer's environment, which can then be used in other programs. For example in ruby you can type `ENV[name_of_variable]` to access an environmental variable.  These are typically set in your bash profile, in a bash script, or at the command line.
 
 Tip: If you want to find out where the program being run is located when you type a command at the command line use the which command.  `which ruby` will tell you where the ruby binary is located.
 
 #### `/usr, /usr/local`, `/usr/local/bin`
 
-These directories are directories that are typically specific to an indivual.
+These directories are directories that are typically specific to an individual.
 
-If you look in /usr/local you'll see a Cellar directory where homebrew installs it's programs.
+If you look in /usr/local you'll see a Cellar directory where homebrew installs its programs.
 
 ## Random Bonus: Piping |
 
 Piping will send the output of one command into the input of another command.
-The most common command you'll probably use is piping the process list to grep to search for a running program.
+The most common command you'll probably use is piping the process list to [grep](http://en.wikipedia.org/wiki/Grep) to search for a running program.
 
 `ps aux | grep ruby`
 
-This would run the ps command with the a,u and x flags, and send the output of that to grep, a search utility which would then search for the term "ruby".
+This would run the ps command with the `a`, `u` and `x` flags, and send the output of that to grep, a search utility which would then search for the term "ruby."
 
 ## More Resources:
 
