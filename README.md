@@ -151,7 +151,7 @@ $ ls -l -a -h
 ```
 Both are valid input options.
 
-**Note:** *Combining flags is only valid for single-letter options. A "long option" such as* `-force` *is defined with more than one character and must be entered with its own flag.*
+**Note:** *Combining flags is only valid for single-letter options. A "long option" such as* `--force` *is defined with more than one character and must be entered with its own flag.*
 
 You have a lot of programs and commands available to you. Useful ones include `open`, `cat`, and `ps`.
 
@@ -192,10 +192,15 @@ You may or may not see a `.bash_profile` file listed. If not, don't worry. We'll
 
 ### Hidden Files
 
-Type in:
+When you entered `$ ls -lah` above, you should have a received a list of files including some that you hadn't seen from enter just `$ ls` before:
 
 ```bash
-$ ls -lah
+drwxr-xr-x   6 avi  staff   204B Jun  2 11:21 .
+drwxr-xr-x   5 avi  staff   170B May 28 15:52 ..
+-rw-r--r--@  1 avi  staff   6.0K May 28 15:52 .DS_Store
+drwxr-xr-x  13 avi  staff   442B Jun  2 11:02 .git
+-rw-r--r--   1 avi  staff    66B May 28 15:49 .learn
+-rw-r--r--   1 avi  staff    11K Jun  2 11:21 README.md
 ```
 
 Notice that at the top of the file output there are a bunch of files that start with a `.`, like `.DS_Store`
