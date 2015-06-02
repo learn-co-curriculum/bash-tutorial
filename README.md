@@ -133,13 +133,13 @@ Most programs also accept flags, or options for execution.
 
 A flag is denotated by a `-` ("dash"). **Note:** *In some programs, options are passed directly to the command and not via flags.*
 
-A common flag that nearly all programs and commands accept is a standalone `h`, for "**h**elp".
+A common flag that nearly all programs and commands accept is a standalone `h`, for "**h**elp" or "**h**uman".
 
 ```bash
 $ ruby -h
 ```
 
-But since flags can be combined and also have suffixes, `h` can have other uses too. In the `ls` command, it is a suffix on the `l` flag meaning "**h**uman readable formats." They can be combined with `a` meaning "**a**ll information including permissions". Try these three together:
+Single-character options can typically be combined with each other may also have suffixes. For example,  in the `ls` command, `h` is a suffix on the `l` flag meaning "**h**uman readable formats." They can be combined with `a` meaning "**a**ll information including permissions". Try these three together:
 
 ```bash
 $ ls -lah
