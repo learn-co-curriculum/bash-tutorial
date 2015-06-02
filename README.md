@@ -14,7 +14,7 @@ You should see some output describing the directory you are currently within.
 
 `/Users/avi`
 
-*Note that avi is my username, yours will vary*
+**Note:** `avi` *is my username; your own username will appear here.*
 
 That output is describing a location on your computer. You have a file system and within that file system are directories and files.
 
@@ -22,11 +22,11 @@ The `pwd` command stands for "**p**rint **w**orking **d**irectory".
 
 `/User/avi` means that I am currently working within a directory `/Users` on the root of my machine, and then within that directory, a directory named `avi`.
 
-That's my home directory. It belongs to the user I am currently logged in as. A short cut for a user's home directory is the `~` (pronounced tilde) character.
+That's my home directory. It belongs to the user I am currently logged in as. The placeholder for a user's home directory is the `~` ("tilde") symbol.
 
 Try this:
 
-*Note that any time you see the '$' character, you shouldn't type it in. This is just a standard way to represent a bash prompt. Yours may or may not be a '$'.*
+**Note:** *Any time you see the* `$` *character, you shouldn't type it in. This is just a standard way to represent a bash prompt. Yours may or may not be a* `$`.
 
 ```bash
 $ cd ..
@@ -38,7 +38,7 @@ You should now see that you are one directory above where you were, in my case
 `/Users`
 
 The `cd` command stands for "**c**hange **d**irectory".
-The `..` command stands for the directory above the working directory.
+The `..` is a placeholder meaning the directory above the working directory.
 
 Try this:
 
@@ -49,13 +49,13 @@ $ pwd
 
 You can see you are still in the same directory.
 
-The `.` command is a shortcut for the current directory.
+The `.` is a placeholder meaning the current directory.
 
-So here are three shortcuts within your filesystem:
+So here are three default placeholders for your file system:
 
-- `~` Home directory
-- `.` current directory
-- `..` directory above
+- `~` Your **home** directory
+- `.` The **current** directory
+- `..` The directory in which your current directory is contained—referred to as the "**parent**" directory.
 
 You can supply any path to the `cd` command to navigate to that location.
 
@@ -129,23 +129,29 @@ $ ruby hello_world.rb
 
 This command is no different than the `cd` command. We're executing the `ruby` program by supplying a path to a file to execute.
 
-Most programs also accept flags or options for execution.
+Most programs also accept flags, or options for execution.
 
-A flag is denotated by a `-` ("dash"). *Note that in some programs, options are passed directly to the command, not via flags*
+A flag is denotated by a `-` ("dash"). **Note:** *In some programs, options are passed directly to the command and not via flags.*
 
-A common flag that nearly all programs and commands accept is `h`, for **h**elp.
+A common flag that nearly all programs and commands accept is a standalone `h`, for "**h**elp".
 
 ```bash
 $ ruby -h
 ```
 
-Now try:
+But since flags can be combined and also have suffixes, `h` can have other uses too. In the `ls` command, it is a suffix on the `l` flag meaning "**h**uman readable formats." They can be combined with `a` meaning "**a**ll information including permissions". Try these three together:
 
 ```bash
 $ ls -lah
 ```
+And also:
 
-What that did is add a bunch of extra formatting and output options to our `ls` command. Namely, the `l` is for "a vertica**l** list of files", the `a` is for "**a**ll information including permissions", and the `h` is for "**h**uman readable formats". Notice that you can combine flags with only one `-`.
+```bash
+$ ls -l -a -h
+```
+Both are valid input options.
+
+**Note:** *Combining flags is only valid for single-letter options. A "long option" such as* `-force` *is defined with more than one character and must be entered with its own flag.*
 
 You have a lot of programs and commands available to you. Useful ones include `open`, `cat`, and `ps`.
 
@@ -194,7 +200,7 @@ $ ls -lah
 
 Notice that at the top of the file output there are a bunch of files that start with a `.`, like `.DS_Store`
 
-But try `$ open .` and just `$ ls`, those files, like `.DS_Store`, are not listed. That's because files that start with a `.` are hidden files. Your `.bash_profile` is a hidden file in your home directory.  If you want to see the hidden files you can add the a flag to `ls` by typing `$ ls -a`.
+But try `$ open .` and just `$ ls`, those files, like `.DS_Store`, are not listed. That's because files that start with a `.` are hidden files. Your `.bash_profile` is a hidden file in your home directory.  If you want to see the hidden files you can add the `a` flag to `ls` by typing `$ ls -a`.
 
 If you're interested in where this convention came from check out [The history of hidden files](https://plus.google.com/101960720994009339267/posts/R58WgWwN9jp) .
 
@@ -207,35 +213,39 @@ You may be wondering what the computer is actually doing when you type a command
 ```
 (This code box is scrollable to the right.)
 
-Each directory in the path is separated by the `:` ("colon").
+Each directory in the path is separated by the `:` ("colon") symbol.
 
 If you ever get errors where you type something in the terminal and it says it can't be found, the executable you're trying to run needs to be added to the path. If the wrong executable is getting run, the order of directories in your path is wrong.
 
-The PATH variable is an environmental variable. These are variables you can set specific to your computer's environment which can then be used in other programs. For example, in Ruby you can type `$ ENV[name_of_variable]` to access an environmental variable. These are typically set in your bash profile, in a bash script, or at the command line.
+The PATH variable is an environmental variable. These are variables you can set specific to your computer's environment which can then be used in other programs. For example, in Ruby you can type `ENV[name_of_variable]` to access an environmental variable. These are typically set in your bash profile, in a bash script, or at the command line.
 
-**Tip:** If you want to find out where the program being run is located when you type a command at the command line, use the which command; entering `$ which ruby` will tell you where the Ruby binary is located.
+**Tip:** *If you want to find out where the program being run is located when you type a command at the command line, use the which command; entering* `$ which ruby` *will tell you where the Ruby binary is located.*
 
-#### `/usr, /usr/local`, `/usr/local/bin`
-
-These directories are directories that are typically specific to an individual.
-
-If you look in /usr/local you'll see a `Cellar` directory where Homebrew installs its programs.
-
-## Random Bonus: Piping |
+## Piping "|"
 
 Piping, a verb derived from the `|` symbol named "pipe", will send the output of one command into the input of another command.
-The most common command you'll probably use is piping the process list to [grep](http://en.wikipedia.org/wiki/Grep) to search for a running program.
+The most common command you'll probably use is piping the **p**roce**s**s list to [grep](http://en.wikipedia.org/wiki/Grep) to search for a running program.
 
 ```bash
 $ ps aux | grep ruby
 ```
 
-This would run the `ps` command with the `a`, `u`, and `x` flags and send the output of that to `grep` (a search utility) which would then search for the term "ruby". If you're curious what these flags means, enter
+This would run the `ps` command with the `a`, `u`, and `x` options and send the output of that to `grep` (a search utility), which would then search for the term "ruby". You'll notice that `ps` is one of the commands that only accepts options *without* a flag. Try:
+
+```bash
+$ ps -aux
+```
+You should have gotten an error. This a peculiar thing about a certain few commands. It's not really necessary to understand at this point, just be aware of it so that it doesn't trip you up.
+
+## Manual
+
+If you're curious what the options on `ps` mean, enter:
 
 ```bash
 $ man ps
 ``` 
-Read about what the `-a` and -`u` flags do. Notice that the `-x` flag is a modifier to the `-a` flag. The `man` ("**man**ual") command reveals very useful reference documentation on the various bash commands. You'll notice that your command prompt has disappeared. Don't panic! You're just inside the documentation. Enter `$ q` ("**q**uit") to return to your command prompt.
+
+Read about what the `a` and `u` options do. Notice that the `x` option is a suffix on the `a` option. The `man` ("**man**ual") command reveals very useful reference documentation on the various bash commands. You'll notice that your command prompt has disappeared. Don't panic! You're just inside the documentation. Enter `$ q` ("**q**uit") to return to your command prompt.
 
 
 ## More Resources:
