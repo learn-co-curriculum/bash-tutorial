@@ -139,7 +139,7 @@ A common flag that nearly all programs and commands accept is a standalone `h`, 
 $ ruby -h
 ```
 
-Single-character options can typically be combined with each other may also have suffixes. For example,  in the `ls` command, `h` is a suffix on the `l` flag meaning "**h**uman readable formats." They can be combined with `a` meaning "**a**ll information including permissions". Try these three together:
+Single-character options can typically be combined with each other. For example,  in the `ls` command, `h` is a suffix on the `l` flag meaning "**h**uman readable formats." They can be combined with `a` meaning "**a**ll information including permissions". Try these three together:
 
 ```bash
 $ ls -lah
