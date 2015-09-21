@@ -119,7 +119,7 @@ Now try:
 $ ls
 ```
 
-You should see the file you just created, `hello_world.rb`, in the working directory.
+You should see the file you just created, `hello_world.rb`, in the working directory. Note that this is an empty file and has nothing inside of it, because you just created it.
 
 From within a shell you can also execute programs. Navigate to where you saved your `hello_world.rb` file and try:
 
@@ -127,7 +127,7 @@ From within a shell you can also execute programs. Navigate to where you saved y
 $ ruby hello_world.rb
 ```
 
-This command is no different than the `cd` command. We're executing the `ruby` program by supplying a path to a file to execute.
+This command is no different than the `cd` command. We're executing the `ruby` program by supplying a path to a file to execute. Because the `hello_world.rb` file you just created is completely empty and has no contents inside of it, there is no program to run and your terminal won't actually produce any output when you tried running it via `ruby hello_world.rb`.
 
 Most programs also accept flags, or options for execution.
 
