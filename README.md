@@ -6,6 +6,8 @@ You can also connect to other computers and basically do everything you can do i
 
 When you open a terminal, you're basically within your file system, or in a directory, just like you are when you open a Finder window or an Explorer window.
 
+If you're using Nitrous, the command line is the area at the bottom of the the screen, underneath the text editor and navigation bar.
+
 ## Navigation
 
 Open up command prompt or terminal. Type in: `pwd` and hit return.
