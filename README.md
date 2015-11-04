@@ -194,7 +194,7 @@ You may or may not see a `.bash_profile` file listed. If not, don't worry. We'll
 
 ### Hidden Files
 
-When you entered `$ ls -lah` above, you should have a received a list of files including some that you hadn't seen from enter just `$ ls` before:
+When you entered `$ ls -lah` above, you should have a received a list of files including some that you hadn't seen from entering just `$ ls` before:
 
 ```bash
 drwxr-xr-x   6 avi  staff   204B Jun  2 11:21 .
