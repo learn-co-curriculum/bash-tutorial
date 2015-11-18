@@ -14,7 +14,7 @@ Open up command prompt or terminal. Type in: `pwd` and hit return.
 
 You should see some output describing the directory you are currently within.
 
-`/Users/avi`
+`/Users/avi` (In Nitrous this will be `/home/nitrous`)
 
 **Note:** `avi` *is my username; your own username will appear here.*
 
