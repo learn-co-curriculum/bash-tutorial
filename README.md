@@ -261,3 +261,5 @@ Read about what the `a` and `u` options do. Notice that the `x` option is a suff
 - [Environment Variables](http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/)
 - [Built-in Shell Commands](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html) *Very useful*
 - [15 Useful Bash Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/)
+
+<a href='https://learn.co/lessons/bash-tutorial' data-visibility='hidden'>View this lesson on Learn.co</a>
