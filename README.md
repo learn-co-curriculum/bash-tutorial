@@ -242,7 +242,7 @@ This would run the `ps` command with the `a`, `u`, and `x` options and send the 
 ```bash
 $ ps -aux
 ```
-You should have gotten an error. This a peculiar thing about a certain few commands. It's not really necessary to understand at this point, just be aware of it so that it doesn't trip you up.
+If you're on OS X, you should have gotten an error — something like `ps: No user named 'x'`. Just keep in mind which commands take options *with* a flag (`-`) and which take options *without* a flag.
 
 ## Manual
 
