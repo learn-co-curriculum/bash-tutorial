@@ -6,7 +6,7 @@ You can also connect to other computers and basically do everything you can do i
 
 When you open a terminal, you're basically within your file system, or in a directory, just like you are when you open a Finder window or an Explorer window.
 
-If you're using Nitrous, the command line is the area at the bottom of the the screen, underneath the text editor and navigation bar.
+If you're using Nitrous, the command line is the area at the bottom of the screen, underneath the text editor and navigation bar.
 
 ## Navigation
 
@@ -263,3 +263,5 @@ Read about what the `a` and `u` options do. Notice that the `x` option is a suff
 - [15 Useful Bash Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/bash-tutorial' title='Intro'>Intro</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/bash-tutorial'>BASH Tutorial</a> on Learn.co and start learning to code for free.</p>
