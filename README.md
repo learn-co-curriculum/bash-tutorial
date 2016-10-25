@@ -22,7 +22,7 @@ That output is describing a location on your computer. You have a file system an
 
 The `pwd` command stands for "**p**rint **w**orking **d**irectory".
 
-`/User/avi` means that I am currently working within a directory `/Users` on the root of my machine, and then within that directory, a directory named `avi`.
+`/Users/avi` means that I am currently working within a directory `/Users` on the root of my machine, and then within that directory, a directory named `avi`.
 
 That's my home directory. It belongs to the user I am currently logged in as. The placeholder for a user's home directory is the `~` ("tilde") symbol.
 
