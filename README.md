@@ -6,17 +6,15 @@ You can also connect to other computers and basically do everything you can do i
 
 When you open a terminal, you're basically within your file system, or in a directory, just like you are when you open a Finder window or an Explorer window.
 
-If you're using Nitrous, the command line is the area at the bottom of the screen, underneath the text editor and navigation bar.
-
 ## Navigation
 
 Open up command prompt or terminal. Type in: `pwd` and hit return.
 
 You should see some output describing the directory you are currently within.
 
-`/Users/avi` (In Nitrous this will be `/home/nitrous`)
+`/Users/avi`
 
-**Note:** `avi` *is my username; your own username will appear here.*
+**Note:** `avi` *is the author's username; your own username will appear here.*
 
 That output is describing a location on your computer. You have a file system and within that file system are directories and files.
 
